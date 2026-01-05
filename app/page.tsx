@@ -63,7 +63,7 @@ export default function Home() {
             проекты до логического и качественного результата.
           </p>
 
-          <div className="grid grid-cols-3 gap-6 mt-10 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 text-sm">
             <div>
               <p className="opacity-60">Опыт</p>
               <p>2+ года</p>
