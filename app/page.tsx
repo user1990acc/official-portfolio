@@ -27,7 +27,7 @@ export default function Home() {
           </p>
 
           <h1 className="text-7xl font-semibold mb-6 leading-tight">
-  Alex
+  Ale
 </h1>
 <p className="hand text-xl mb-6 opacity-80">
   frontend · creative · clean
