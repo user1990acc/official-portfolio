@@ -1,4 +1,32 @@
-export default function Home() {
+import { useEffect, useState } from "react";
+export default function Home()  {
+  const [gradientIndex, setGradientIndex] = useState(0);
+
+const gradients = [
+  "linear-gradient(120deg, #f7c1cc, #c9b19a)",
+  "linear-gradient(120deg, #e7a6b2, #f3d9c8)",
+  "linear-gradient(120deg, #d6b3c6, #c9b19a)",
+];
+useEffect(() => {
+  const interval = setInterval(() => {
+    setGradientIndex((prev) => (prev + 1) % gradients.length);
+  }, 6000);
+
+  return () => clearInterval(interval);
+}, []);
+  const [lang, setLang] = useState<"ru" | "en">("ru");
+  const content = {
+  ru: {
+    role: "frontend developer",
+    about: "Обо мне",
+    contact: "Связаться",
+  },
+  en: {
+    role: "frontend developer",
+    about: "About me",
+    contact: "Contact",
+  },
+};
   const skills = [
     "HTML",
     "CSS",
@@ -13,7 +41,13 @@ export default function Home() {
   ];
 
   return (
-    <main className="relative overflow-hidden">
+    <main
+  style={{
+    minHeight: "100vh",
+    background: gradients[gradientIndex],
+    transition: "background 2s ease",
+  }}
+>
       
       {/* blobs */}
       <div className="blob pink one"></div>
@@ -22,7 +56,7 @@ export default function Home() {
       {/* HERO */}
       <section className="px-6 py-40">
         <div className="paper max-w-5xl mx-auto">
-          <p className="hand text-sm opacity-70 mb-4">
+         <p className="hand">{content[lang].role}
             frontend developer
           </p>
 
@@ -42,7 +76,12 @@ export default function Home() {
     Связаться
   </span>
 </a>
+<div style={{ marginBottom: 20 }}>
+  <button onClick={() => setLang("ru")}>RU</button>
+  <button onClick={() => setLang("en")}>EN</button>
+</div>
         </div>
+       
       </section>
 
       {/* ABOUT */}
