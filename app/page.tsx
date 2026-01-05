@@ -1,32 +1,9 @@
-import { useEffect, useState } from "react";
+"use client";
 export default function Home()  {
-  const [gradientIndex, setGradientIndex] = useState(0);
 
-const gradients = [
-  "linear-gradient(120deg, #f7c1cc, #c9b19a)",
-  "linear-gradient(120deg, #e7a6b2, #f3d9c8)",
-  "linear-gradient(120deg, #d6b3c6, #c9b19a)",
-];
-useEffect(() => {
-  const interval = setInterval(() => {
-    setGradientIndex((prev) => (prev + 1) % gradients.length);
-  }, 6000);
 
-  return () => clearInterval(interval);
-}, []);
-  const [lang, setLang] = useState<"ru" | "en">("ru");
-  const content = {
-  ru: {
-    role: "frontend developer",
-    about: "Обо мне",
-    contact: "Связаться",
-  },
-  en: {
-    role: "frontend developer",
-    about: "About me",
-    contact: "Contact",
-  },
-};
+ 
+  
   const skills = [
     "HTML",
     "CSS",
@@ -42,11 +19,6 @@ useEffect(() => {
 
   return (
     <main
-  style={{
-    minHeight: "100vh",
-    background: gradients[gradientIndex],
-    transition: "background 2s ease",
-  }}
 >
       
       {/* blobs */}
@@ -55,8 +27,8 @@ useEffect(() => {
 
       {/* HERO */}
       <section className="px-6 py-40">
-        <div className="paper max-w-5xl mx-auto">
-         <p className="hand">{content[lang].role}
+<div className="paper max-w-5xl mx-auto">
+         <p className="hand">
             frontend developer
           </p>
 
@@ -76,17 +48,13 @@ useEffect(() => {
     Связаться
   </span>
 </a>
-<div style={{ marginBottom: 20 }}>
-  <button onClick={() => setLang("ru")}>RU</button>
-  <button onClick={() => setLang("en")}>EN</button>
-</div>
         </div>
        
       </section>
 
       {/* ABOUT */}
       <section className="px-6 mt-32">
-        <div className="paper max-w-4xl mx-auto">
+<div className="paper max-w-5xl mx-auto">
          <p className="hand opacity-70 mb-2">
   немного обо мне
 </p>
@@ -121,7 +89,7 @@ useEffect(() => {
 
 {/* SKILLS */}
 <section className="px-6 mt-32">
-  <div className="paper max-w-5xl mx-auto">
+<div className="paper max-w-5xl mx-auto">
     <h2 className="text-3xl mb-10">Навыки</h2>
 
     <div
@@ -158,7 +126,7 @@ useEffect(() => {
 
       {/* CONTACT */}
       <section id="contact" className="px-6 mt-32 pb-40">
-        <div className="paper max-w-4xl mx-auto">
+<div className="paper max-w-5xl mx-auto">
           <h2 className="text-3xl mb-4">Контакты</h2>
 
           <p className="mb-6">
